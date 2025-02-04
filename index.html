@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz San Valentín</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffcccc;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+            transition: background 0.5s ease;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            position: relative;
+            display: none;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .question {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes { background-color: #ff4d4d; color: white; font-size: 16px; }
+        .no { background-color: #cccccc; }
+        .video-button {
+            margin-top: 20px;
+            background-color: #ff4d4d;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+    <script>
+        function acceptValentine() {
+            document.querySelector('.question').style.display = 'none';
+            document.querySelector('.card').style.display = 'block';
+            document.querySelector('.video-button').style.display = 'block';
+            document.body.style.backgroundImage = "url('img1.jpg')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
+        }
+
+        function increaseYesSize() {
+            let yesButton = document.querySelector('.yes');
+            let noButton = document.querySelector('.no');
+            let currentSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize + 4) + 'px';
+            noButton.textContent = "No aceptare un NO como respuesta jaja";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('.no').addEventListener('click', increaseYesSize);
+        });
+    </script>
+</head>
+<body>
+    <div class="question">
+        <h2>¿Quieres ser mi San Valentín? 💘</h2>
+        <button class="yes" onclick="acceptValentine()">Sí 💖</button>
+        <button class="no">No 💔</button>
+    </div>
+    <div class="card">
+        <div class="heart">❤️</div>
+        <h1>¡My Valentineeeee!</h1>
+        <p>Gracias por aceptarme mi amor, espero hacer que tu valentin valga la pena mi amor. 💖</p>
+        <p>Te amo muchisimo mi niña de ojos bellos,</p>
+        <p><strong>JA</strong></p>
+        <button class="video-button" onclick="window.location.href='https://youtube.com/shorts/VvfxGH-hVpo?si=QQAw1Gd8C3IVaE2u'">Ver Video 🎥</button>
+    </div>
+</body>
+</html>
